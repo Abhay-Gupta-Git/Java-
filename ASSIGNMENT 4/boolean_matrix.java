@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class boolean_matrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int[][] mat = new int[m][n];
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                mat[i][j] = sc.nextInt();
+            }
+        }
+        
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] == 1) {
+                    row[i] = true;
+                    col[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (row[i] || col[j]) {
+                    mat[i][j] = 1;
+                }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(mat[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
